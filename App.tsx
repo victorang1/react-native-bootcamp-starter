@@ -10,6 +10,7 @@ import {
   Image
 } from 'react-native';
 import BasicComponent from './src/components/BasicComponent';
+import AppNavigation from './src/navigation';
 import CounterScreen from './src/screens/CounterScreen';
 import TodoListScreen from './src/screens/TodoListScreen';
 
@@ -19,7 +20,8 @@ const App = () => {
     <SafeAreaView style={styles.base}>
       {/* <BasicComponent /> */}
       {/* <CounterScreen /> */}
-      <TodoListScreen />
+      {/* <TodoListScreen /> */}
+      <AppNavigation />
     </SafeAreaView>
   );
 };

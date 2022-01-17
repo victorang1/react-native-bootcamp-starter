@@ -1,11 +1,14 @@
 // shortcut rfne
 
+import { useNavigation } from '@react-navigation/core';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useState, useEffect } from 'react'
 import { 
     View, Text, 
     StyleSheet, TouchableOpacity 
 } from 'react-native'
 import ChangeBackgroundColor from '../components/ChangeBackgroundColor';
+import { RootStackParamList } from '../navigation/RootStackParamList';
 
 // State and Props
 // State -> value yang ada di satu component
@@ -14,6 +17,8 @@ import ChangeBackgroundColor from '../components/ChangeBackgroundColor';
 const CounterScreen = () => {
     const [counter, setCounter] = useState(10);
     const [backgroundColor, setBackgroundColor] = useState('green');
+
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'CounterScreen'>>();
 
     useEffect(() => {
         // jalanin function di dalem ini
@@ -40,6 +45,10 @@ const CounterScreen = () => {
         setBackgroundColor(backgroundColor);
     }
 
+    const navigateToTodoList = () => {
+        navigation.navigate("TodoListScreen");
+    }
+
     return (
         <View style={[style.container, { backgroundColor: backgroundColor }]}>
             <Text style={[style.textCounter, style.textRed]}>
@@ -63,6 +72,14 @@ const CounterScreen = () => {
                 counter={counter}
                 toggleBackgroundColor={toggleBackgroundColor}
             />
+            <TouchableOpacity 
+                    style={style.button}
+                    onPress={navigateToTodoList}
+                >
+                <Text style={style.buttonText}>
+                    Navigate to Todolist Screen
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 }

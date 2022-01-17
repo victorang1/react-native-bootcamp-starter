@@ -1,6 +1,7 @@
 package com.bootcampreactnative;
 
 import com.facebook.react.ReactActivity;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +13,14 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "BootcampReactNative";
   }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
 }
+
+// Halaman Home Screen -> Button buat ke todolist
+// Halaman TodoList
+
+// HomeScreen 
