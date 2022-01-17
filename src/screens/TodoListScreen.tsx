@@ -7,6 +7,11 @@ import { FlatList, View, Text, StyleSheet, ListRenderItemInfo, TextInput, Toucha
 import { ITodoListItem } from '../interfaces';
 import { RootStackParamList } from '../navigation/RootStackParamList';
 
+// useState -> buat bikin state
+// useEffect -> buat ngetrigger function ketika state berubah / pas halaman baru dijalanin
+// useNavigation -> untuk navigasi2
+// useRoute -> untuk ambil param yang dilempar dari halaman sebelumnya
+
 const TodoListScreen = () => {
 
     const [todos, setTodos] = useState<ITodoListItem[]>([])
