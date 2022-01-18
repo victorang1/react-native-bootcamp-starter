@@ -6,7 +6,7 @@ import { RootStackParamList } from '../navigation/RootStackParamList'
 const DetailTodoScreen = () => {
 
     const route = useRoute<RouteProp<RootStackParamList, 'DetailTodoScreen'>>();
-
+    
     const { id, title, description } = route.params.item;
 
     return (

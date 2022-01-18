@@ -12,6 +12,8 @@ import { RootStackParamList } from '../navigation/RootStackParamList';
 // useNavigation -> untuk navigasi2
 // useRoute -> untuk ambil param yang dilempar dari halaman sebelumnya
 
+// axios, react-redux, redux-persist
+
 const TodoListScreen = () => {
 
     const [todos, setTodos] = useState<ITodoListItem[]>([])

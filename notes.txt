@@ -1,0 +1,9 @@
+pake project kemarin
+jalanin projectnya dulu
+
+https://github.com/victorang1/react-native-bootcamp-starter
+kalau abis clone/download projectnya
+jalanin "npm install"
+baru jalanin pake npm run android / npx react-native run-android
+
+yang udh bisa kebuka boleh raise hand ya

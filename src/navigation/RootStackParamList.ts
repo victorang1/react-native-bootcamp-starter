@@ -6,4 +6,6 @@ export type RootStackParamList = {
     DetailTodoScreen: {
         item: ITodoListItem
     }
+    LoginScreen: undefined;
+    HomeScreen: undefined;
 }
