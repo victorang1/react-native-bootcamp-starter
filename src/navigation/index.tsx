@@ -9,12 +9,25 @@ import { RootStackParamList } from './RootStackParamList';
 import DetailTodoScreen from '../screens/DetailTodoScreen';
 import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store';
+import { Button } from 'react-native';
+import { logout } from '../store/AuthReducer/AuthReducer';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigation = () => {
 
-    const isLoggedIn = false;
+    // useSelector untuk akses state di redux
+
+    const auth = useSelector((state: RootState) => state.auth);
+    const isLoggedIn = auth.isLoggedIn;
+
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch(logout());
+    }
 
     return (
         <NavigationContainer>
@@ -25,7 +38,18 @@ const AppNavigation = () => {
                 {
                     isLoggedIn ? (
                         <>
-                            <Stack.Screen name={"HomeScreen"} component={HomeScreen} />
+                            <Stack.Screen 
+                                name={"HomeScreen"} 
+                                component={HomeScreen} 
+                                options={{
+                                    headerRight: () => (
+                                        <Button
+                                            title='Logout'
+                                            onPress={onLogout}
+                                        />
+                                    )
+                                }}
+                            />
                             <Stack.Screen name={"CounterScreen"} component={CounterScreen} />
                             <Stack.Screen name={"TodoListScreen"} component={TodoListScreen} />
                             <Stack.Screen name={"DetailTodoScreen"} component={DetailTodoScreen} />
@@ -34,8 +58,6 @@ const AppNavigation = () => {
                         <Stack.Screen name={"LoginScreen"} component={LoginScreen} />
                     )
                 }
-                
-                
             </Stack.Navigator>
         </NavigationContainer>
     )

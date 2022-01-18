@@ -3,14 +3,25 @@ import {
     Alert, View, Text, StyleSheet, 
     TextInput, Button
 } from 'react-native'
+import { useDispatch } from 'react-redux';
+import { saveSession } from '../store/AuthReducer/AuthReducer';
+
+// Redux Store -> isi nya state
+// Reducer -> ngatur2 state
+// Action -> fungsi yang buat ubah state
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const dispatch = useDispatch();
+
+    // mesti pake dispatch untuk panggil setiap action yg ada di reducer
+
     const onLogin = () => {
         if (email === 'victor@binus.edu' && password === 'a') {
             // Login Success
+            dispatch(saveSession(email));
         }
         else {
             // Login failed

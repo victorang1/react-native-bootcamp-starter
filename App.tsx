@@ -9,10 +9,13 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import BasicComponent from './src/components/BasicComponent';
 import AppNavigation from './src/navigation';
 import CounterScreen from './src/screens/CounterScreen';
 import TodoListScreen from './src/screens/TodoListScreen';
+import { store, persistor } from './src/store';
 
 const App = () => {
 
@@ -21,7 +24,11 @@ const App = () => {
       {/* <BasicComponent /> */}
       {/* <CounterScreen /> */}
       {/* <TodoListScreen /> */}
-      <AppNavigation />
+      <Provider store={store}>
+        <PersistGate persistor={persistor} >
+          <AppNavigation />
+        </PersistGate>
+      </Provider>
     </SafeAreaView>
   );
 };
