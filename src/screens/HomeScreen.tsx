@@ -21,6 +21,7 @@ const HomeScreen = () => {
         }
     }, [])
 
+    const authState = useSelector((state: RootState) => state.auth);
     const postState = useSelector((state: RootState) => state.post);
     const [loading, setLoading] = useState(false);
 
@@ -71,6 +72,7 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
+            <Text>Welcome {authState.email}</Text>
             <FlatList
                 data={postState.posts}
                 renderItem={renderPostItem}
