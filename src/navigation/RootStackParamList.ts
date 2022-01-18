@@ -8,4 +8,5 @@ export type RootStackParamList = {
     }
     LoginScreen: undefined;
     HomeScreen: undefined;
+    AddPostScreen: undefined;
 }

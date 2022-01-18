@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { Button } from 'react-native';
 import { logout } from '../store/AuthReducer/AuthReducer';
+import AddPostScreen from '../screens/AddPostScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -53,6 +54,7 @@ const AppNavigation = () => {
                             <Stack.Screen name={"CounterScreen"} component={CounterScreen} />
                             <Stack.Screen name={"TodoListScreen"} component={TodoListScreen} />
                             <Stack.Screen name={"DetailTodoScreen"} component={DetailTodoScreen} />
+                            <Stack.Screen name={"AddPostScreen"} component={AddPostScreen} />
                         </>
                     ) : (
                         <Stack.Screen name={"LoginScreen"} component={LoginScreen} />

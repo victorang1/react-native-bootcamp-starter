@@ -3,3 +3,9 @@ export interface ITodoListItem {
     title: string;
     description: string;
 }
+
+export interface IPostItem {
+    id: number;
+    title: string;
+    body: string;
+}
